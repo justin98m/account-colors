@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h2 id="title"> Questionarre</h2>
+
+
+<form  action="submit" method="post">
+    <label for="vice">What's your vice</label>
+    <input type="text" name="vice" required><br>
+    <label for="age">How old are ya?</label>
+    <input type="text" name="age">
+    <br>
+    <input type="submit" name="submit" value="submit">
+</form>
+{% endblock %}
