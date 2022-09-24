@@ -1,0 +1,18 @@
+s{% extends "layout.html" %}
+{% block content %}
+<style>
+  body{
+    background-color: red;
+  }
+</style>
+<h2 id="title"> Welcome {{username}}</h2>
+
+<form  action="setColor" method="post">
+    <label for="color">Change your color</label>
+    <input type="color" name="color" required><br>
+    <input type="submit" name="setColor" value="setColor">
+</form>
+
+
+<a href="/"><button type="button" name="button">Logout </button>
+{% endblock %}
