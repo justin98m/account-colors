@@ -28,28 +28,33 @@ app.get('/',(req,res) => {
 		css: 'home.css'
 	})
 })
-
+app.get('/profile')
 //Getting Post Data
 
 app.post('/submit',(req,res) =>{
 	let data = {
 			layout: 'layout.html',
 			username : req.body.username,
+			password : req.body.password,
+			//1 val will be set the other will be undefined
+			submitType : req.body.login || req.body.createAccount
 	}
-  console.log(req.body.login);
-  console.log(req.body.createAccount);
+	if(data.submitType === 'createAccount'){
+		console.log('createAccount')
+	} else if(data.submitType === 'login'){
+		console.log('Log in');
+	} else{
+		//error
+		res.redirect('/setColor');
+	}
+	res.redirect('/')
+})
 app.post('/setColor',(req,res)=>{
   let data = {
     layout: 'layout.html',
     color: req.body.color,
   }
   res.render('profile.html',data);
-
-  
-})
-
-
-	res.render('profile.html',data)
 })
 
 

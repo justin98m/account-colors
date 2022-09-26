@@ -1,14 +1,18 @@
 {% extends "layout.html" %}
 {% block content %}
 
-<h2 id="title"> Questionarre</h2>
+<h2 id="title">Welcome To Color Accounts</h2>
 
 
 <form  action="submit" method="post">
     <label for="username">Username: </label>
-    <input type="text" name="username" required placeholder="myusernameis"><br>
-    <input type="password" name="password" required placeholder="*******">
-    <input type="submit" name="logIn" value="logIn">
-    <input type="submit" name="createAccount" value="createAccount">
+    <input type="text" name="username" required placeholder="Username"><br>
+    <label for="password">Password:</label>
+    <input type="password" name="password" required ><br>
+    <div class="buttons">
+      <input class="submit" type="submit" name="login" value="login">
+      <input class="submit" type="submit" name="createAccount" value="createAccount">
+    </div>
+
 </form>
 {% endblock %}
