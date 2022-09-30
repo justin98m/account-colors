@@ -2,8 +2,9 @@
 const mysql = require('mysql2');
 const dotenv = require('dotenv');
 dotenv.config();
-var con = mysql.createConnection({
+var pool = mysql.createPool({
         //should be a hidden env var
+        connectionLimit:10,
         host: process.env.REMOTE_ENDPOINT,
         user: process.env.MYSQLUSERNAME,
         password: process.env.MYSQLPASSWORD,
@@ -11,9 +12,4 @@ var con = mysql.createConnection({
         multipleStatements: true
 });
 
-con.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected!");
-});
-
-exports.runsql = con;
+module.exports = pool;
